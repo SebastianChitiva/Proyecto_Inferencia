@@ -101,6 +101,55 @@ EXTRA_RULES = [
     ),
     consequent=("MenosIdeal", "?s", "?g", "?t"),
     ),
+    Rule(
+    name="R16_priorizar_colaborativo_reunion",
+    antecedents=(
+        ("Asignable", "?s", "?g", "?t"),
+        ("ReunionEquipo", "?g"),
+        ("Colaborativo", "?s"),
+    ),
+    consequent=("Recomendable", "?s", "?g", "?t"),
+    description="Para reuniones, preferir espacios colaborativos.",
+),
+    Rule(
+    name="R17_priorizar_capacidad_presentacion_grande",
+    antecedents=(
+        ("Asignable", "?s", "?g", "?t"),
+        ("PresentacionGrande", "?g"),
+        ("CapacidadAlta", "?s"),
+    ),
+    consequent=("Recomendable", "?s", "?g", "?t"),
+    description="Presentaciones grandes requieren alta capacidad.",
+),
+    Rule(
+    name="R19_prioridad_alta_accesible",
+    antecedents=(
+        ("Recomendable", "?s", "?g", "?t"),
+        ("NecesitaAccesibilidad", "?g"),
+        ("Accesible", "?s"),
+    ),
+    consequent=("AltamenteRecomendable", "?s", "?g", "?t"),
+    description="Espacios accesibles tienen máxima prioridad.",
+),
+    Rule(
+    name="R20_penalizar_no_silencioso",
+    antecedents=(
+        ("Asignable", "?s", "?g", "?t"),
+        ("EstudioIndividual", "?g"),
+        ("Colaborativo", "?s"),
+    ),
+    consequent=("MenosIdeal", "?s", "?g", "?t"),
+    description="Espacios colaborativos no son ideales para estudio individual.",
+),
+    Rule(
+    name="R21_accesibilidad_exclusiva",
+    antecedents=(
+        ("Asignable", "?s", "?g", "?t"),
+        ("NecesitaAccesibilidad", "?g"),
+        ("Accesible", "?s"),
+    ),
+    consequent=("Recomendable", "?s", "?g", "?t"),
+)
 ]
 
 
